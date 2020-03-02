@@ -15,7 +15,7 @@ type Product {
 }
 
 input ProductInputs {
- category: CategoryType = Shirts
+ category: CategoryType 
   productname: String!
   price: GraphQLPrice
   image: String

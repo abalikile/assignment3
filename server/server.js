@@ -1,4 +1,4 @@
-const fs = require('fs');
+ const fs = require('fs');
 const express = require('express');
 const {ApolloServer,UserInputError } = require('apollo-server-express');
 const { GraphQLScalarType } = require('graphql');
@@ -45,7 +45,7 @@ function productValidate(product) {
     errors.push('Field "productname" is mandatory.');
   }
    if(product.price){
-	   //'Field "Price" cannot have alphabets. only two digits allowed after decimal places'
+	   //'Field "Price" cannot have alphabets. only two digits allowed after decimal places & It should always start with a number from[1-9]'
 
 		var regex = /^\s*-?[1-9]\d*(\.\d{1,2})?\s*$/;
 		if(!regex.test(product.price)) {
@@ -62,7 +62,7 @@ function productValidate(product) {
 function productAdd(_, { product }) {
   productValidate(product);
   product.id = productsDB.length + 1;
-  if (product.category == undefined) product.category = 'Shirts';
+  
   productsDB.push(product);
   return product;
 }

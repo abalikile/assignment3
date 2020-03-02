@@ -44,7 +44,7 @@ class ProductAdd extends React.Component{
 
 	// To read the price value using onChange.
     handleChange(e){
-		this.setState({value: e.target.value});
+		this.setState({value: e.target.reset});
 	}
 	handleSubmit(e){
 		e.preventDefault();
@@ -54,7 +54,7 @@ class ProductAdd extends React.Component{
 			productname: form.productname.value,  price: form.price.value, category: form.category.value, image: form.image.value,
 		}
 		this.props.createProduct(product);
-		form.productname.value = ""; form.price.value = ""; form.category.value = ""; form.image.value = "";
+		form.productname.value = ""; form.price.value = '$'; form.category.value = 'Shirts'; form.image.value = "";
 	}
 
 	render(){
