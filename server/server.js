@@ -47,7 +47,7 @@ function productValidate(product) {
    if(product.price){
 	   //'Field "Price" cannot have alphabets. only two digits allowed after decimal places & It should always start with a number from[1-9]'
 
-		var regex = /^\s*-?[1-9]\d*(\.\d{1,2})?\s*$/;
+		var regex = /^\s*-?[0-9]\d*(\.\d{1,2})?\s*$/;
 		if(!regex.test(product.price)) {
 
 		  errors.push('Field "Price" invalid.');
